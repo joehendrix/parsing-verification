@@ -1,0 +1,565 @@
+(grammar)
+(proof
+ (well_formed_record_TCC1 0
+  (well_formed_record_TCC1-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof1index"
+    "below[p`length]")))
+ (well_formed_record_TCC2 0
+  (well_formed_record_TCC2-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (record_match const-decl "boolean" proof nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof2index"
+    "below[p`length]")))
+ (well_formed_record_TCC3 0
+  (well_formed_record_TCC3-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof1index"
+    "below[p`length]")))
+ (well_formed_record_TCC4 0
+  (well_formed_record_TCC4-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (record_match const-decl "boolean" proof nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof2index"
+    "below[p`length]")))
+ (well_formed_record_TCC5 0
+  (well_formed_record_TCC5-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof1index"
+    "below[p`length]")))
+ (well_formed_record_TCC6 0
+  (well_formed_record_TCC6-1 nil 3856522808 ("" (subtype-tcc) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil))
+   nil
+   (well_formed_record subtype "proof.r`subproof1index"
+    "below[p`length]")))
+ (intro_well_formed_record 0
+  (intro_well_formed_record-1 nil 3856522844 ("" (grind) nil nil)
+   ((boolean nonempty-type-decl nil booleans nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (< const-decl "bool" reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (below type-eq-decl nil nat_types nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (record_match const-decl "boolean" proof nil)
+    (endposition const-decl "nat" proof nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (well_formed_record const-decl "boolean" proof nil)
+    (well_formed_proof const-decl "boolean" proof nil))
+   shostak))
+ (match_same 0
+  (match_same-1 nil 3856522874
+   ("" (skolem * ("g" "s" "p" "q"))
+    ((""
+      (induct "i" :name "wf_induction[nat, (LAMBDA (m,n:nat): m < n)]")
+      (("1" (skolem * ("i"))
+        (("1" (flatten)
+          (("1" (skolem * ("j"))
+            (("1" (flatten)
+              (("1"
+                (lemma "intro_well_formed_record"
+                 ("g" "g" "s" "s" "p" "p" "i" "i"))
+                (("1"
+                  (lemma "intro_well_formed_record"
+                   ("g" "g" "s" "s" "p" "q" "i" "j"))
+                  (("1" (assert)
+                    (("1" (hide -4 -5)
+                      (("1" (name "expr" "g(q`seq(j)`leftnonterminal)")
+                        (("1" (generalize "expr" "e")
+                          (("1" (induct "e")
+                            (("1" (grind) nil nil)
+                             ("2" (grind) nil nil)
+                             ("3" (grind) nil nil)
+                             ("4" (skolem * ("t"))
+                              (("4" (grind) nil nil)) nil)
+                             ("5" (skolem * ("ae" "be"))
+                              (("5"
+                                (flatten)
+                                (("5"
+                                  (expand "well_formed_record")
+                                  (("5"
+                                    (replace -7 :hide? T)
+                                    (("5"
+                                      (replace -1 :hide? T)
+                                      (("5"
+                                        (assert)
+                                        (("5"
+                                          (expand "record_match")
+                                          (("5"
+                                            (flatten)
+                                            (("5"
+                                              (instantiate
+                                               *
+                                               ("p`seq(i)`subproof1index")
+                                               :copy?
+                                               T)
+                                              (("5"
+                                                (assert)
+                                                (("5"
+                                                  (instantiate
+                                                   -10
+                                                   ("q`seq(j)`subproof1index"))
+                                                  (("5"
+                                                    (expand
+                                                     "record_result"
+                                                     -10)
+                                                    (("5"
+                                                      (split -8)
+                                                      (("1"
+                                                        (flatten)
+                                                        (("1"
+                                                          (instantiate
+                                                           *
+                                                           ("p`seq(i)`subproof2index"))
+                                                          (("1"
+                                                            (assert)
+                                                            (("1"
+                                                              (instantiate
+                                                               *
+                                                               ("q`seq(j)`subproof2index"))
+                                                              (("1"
+                                                                (case
+                                                                 "q`seq(q`seq(j)`subproof1index)`success?")
+                                                                (("1"
+                                                                  (assert)
+                                                                  (("1"
+                                                                    (decompose-equality)
+                                                                    (("1"
+                                                                      (expand
+                                                                       "endposition")
+                                                                      (("1"
+                                                                        (assert)
+                                                                        (("1"
+                                                                          (expand
+                                                                           "record_result"
+                                                                           -18)
+                                                                          (("1"
+                                                                            (case
+                                                                             "p`seq(p`seq(i)`subproof2index)`success?")
+                                                                            (("1"
+                                                                              (grind)
+                                                                              (("1"
+                                                                                (decompose-equality)
+                                                                                (("1"
+                                                                                  (grind)
+                                                                                  nil
+                                                                                  nil))
+                                                                                nil))
+                                                                              nil)
+                                                                             ("2"
+                                                                              (grind)
+                                                                              nil
+                                                                              nil))
+                                                                            nil))
+                                                                          nil))
+                                                                        nil))
+                                                                      nil))
+                                                                    nil))
+                                                                  nil)
+                                                                 ("2"
+                                                                  (grind)
+                                                                  nil
+                                                                  nil))
+                                                                nil))
+                                                              nil))
+                                                            nil))
+                                                          nil))
+                                                        nil)
+                                                       ("2"
+                                                        (grind)
+                                                        nil
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("6" (skolem * ("ae" "be"))
+                              (("6"
+                                (flatten)
+                                (("6"
+                                  (expand "well_formed_record")
+                                  (("6"
+                                    (replace -7)
+                                    (("6"
+                                      (hide -7)
+                                      (("6"
+                                        (replace -1)
+                                        (("6"
+                                          (hide -1)
+                                          (("6"
+                                            (assert)
+                                            (("6"
+                                              (flatten)
+                                              (("6"
+                                                (instantiate
+                                                 *
+                                                 ("p`seq(i)`subproof1index")
+                                                 :copy?
+                                                 T)
+                                                (("6"
+                                                  (assert)
+                                                  (("6"
+                                                    (instantiate
+                                                     -8
+                                                     ("q`seq(j)`subproof1index"))
+                                                    (("6"
+                                                      (expand
+                                                       "record_match")
+                                                      (("6"
+                                                        (flatten)
+                                                        (("6"
+                                                          (assert)
+                                                          (("6"
+                                                            (expand
+                                                             "record_result"
+                                                             -10)
+                                                            (("6"
+                                                              (split
+                                                               -8)
+                                                              (("1"
+                                                                (grind)
+                                                                nil
+                                                                nil)
+                                                               ("2"
+                                                                (flatten)
+                                                                (("2"
+                                                                  (assert)
+                                                                  (("2"
+                                                                    (lift-if
+                                                                     -13)
+                                                                    (("2"
+                                                                      (split
+                                                                       -13)
+                                                                      (("1"
+                                                                        (flatten)
+                                                                        (("1"
+                                                                          (assert)
+                                                                          nil
+                                                                          nil))
+                                                                        nil)
+                                                                       ("2"
+                                                                        (assert)
+                                                                        (("2"
+                                                                          (flatten)
+                                                                          (("2"
+                                                                            (instantiate
+                                                                             *
+                                                                             ("p`seq(i)`subproof2index"))
+                                                                            (("2"
+                                                                              (assert)
+                                                                              (("2"
+                                                                                (instantiate
+                                                                                 *
+                                                                                 ("q`seq(j)`subproof2index"))
+                                                                                (("2"
+                                                                                  (grind)
+                                                                                  nil
+                                                                                  nil))
+                                                                                nil))
+                                                                              nil))
+                                                                            nil))
+                                                                          nil))
+                                                                        nil))
+                                                                      nil))
+                                                                    nil))
+                                                                  nil))
+                                                                nil))
+                                                              nil))
+                                                            nil))
+                                                          nil))
+                                                        nil))
+                                                      nil))
+                                                    nil))
+                                                  nil))
+                                                nil))
+                                              nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("7" (skolem * ("ae"))
+                              (("7"
+                                (flatten)
+                                (("7"
+                                  (expand "well_formed_record")
+                                  (("7"
+                                    (assert)
+                                    (("7"
+                                      (flatten)
+                                      (("7"
+                                        (instantiate
+                                         *
+                                         ("p`seq(i)`subproof1index"))
+                                        (("7"
+                                          (assert)
+                                          (("7"
+                                            (instantiate
+                                             *
+                                             ("q`seq(j)`subproof1index"))
+                                            (("7" (grind) nil nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil)
+                             ("8" (skolem * ("ae"))
+                              (("8"
+                                (flatten)
+                                (("8"
+                                  (expand "well_formed_record")
+                                  (("8"
+                                    (assert)
+                                    (("8"
+                                      (flatten)
+                                      (("8"
+                                        (instantiate
+                                         *
+                                         ("p`seq(i)`subproof1index"))
+                                        (("8"
+                                          (assert)
+                                          (("8"
+                                            (instantiate
+                                             *
+                                             ("q`seq(j)`subproof1index"))
+                                            (("8" (grind) nil nil))
+                                            nil))
+                                          nil))
+                                        nil))
+                                      nil))
+                                    nil))
+                                  nil))
+                                nil))
+                              nil))
+                            nil))
+                          nil))
+                        nil))
+                      nil))
+                    nil))
+                  nil))
+                nil))
+              nil))
+            nil))
+          nil))
+        nil)
+       ("2" (use "wf_nat") nil nil))
+      nil))
+    nil)
+   ((IMPLIES const-decl "[bool, bool -> bool]" booleans nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (NT formal-nonempty-type-decl nil proof nil)
+    (T formal-nonempty-type-decl nil proof nil)
+    (expression type-decl nil grammar nil)
+    (grammar type-eq-decl nil grammar nil)
+    (below type-eq-decl nil nat_types nil)
+    (finseq type-eq-decl nil finite_sequences nil)
+    (proof_record type-eq-decl nil proof nil)
+    (pre_proof type-eq-decl nil proof nil)
+    (well_formed_proof const-decl "boolean" proof nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (result type-decl nil proof nil)
+    (record_result const-decl "result" proof nil)
+    (< const-decl "bool" reals nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (wf_induction formula-decl nil wf_induction nil)
+    (well_founded? const-decl "bool" orders nil)
+    (pred type-eq-decl nil defined_types nil)
+    (well_formed_record const-decl "boolean" proof nil)
+    (record_match const-decl "boolean" proof nil)
+    (endposition const-decl "nat" proof nil)
+    (nnint_plus_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (success? adt-recognizer-decl "[result -> boolean]" proof nil)
+    (n adt-accessor-decl "[(success?) -> nat]" proof nil)
+    (success adt-constructor-decl "[nat -> (success?)]" proof nil)
+    (expression_induction formula-decl nil grammar nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (below type-eq-decl nil naturalnumbers nil)
+    (intro_well_formed_record formula-decl nil proof nil)
+    (wf_nat formula-decl nil naturalnumbers nil))
+   shostak)))
+

@@ -1,0 +1,2015 @@
+{
+ "grammar.well_formed_TCC1": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "9ee261320e7420bf5c9012bb0e961e0c29a648ad189f0daba7c5f49fc32dadcd"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC1": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC2": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(bash)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC3": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC3",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(bash)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC4": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC4",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC5": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC5",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC6": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC6",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.well_formed_record_TCC7": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "well_formed_record_TCC7",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "bea851b1ed5b3f592fd823643798dc72b0e041f5d47422dd284d43e55c31d27d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC7",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.sum_plus": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "sum_plus",
+    "status": "untried",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "bea851b1ed5b3f592fd823643798dc72b0e041f5d47422dd284d43e55c31d27d"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "sum_plus",
+    "type": "root",
+    "rules": []
+   }
+  }
+ ],
+ "grammar.intro_well_formed_record": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "intro_well_formed_record",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "intro_well_formed_record",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(expand \"well_formed_proof\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "grammar.match_same": [
+  {
+   "info": {
+    "theory": "grammar",
+    "formula": "match_same",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8c441ec94e8dc1f2c03fc6b5ce9919a7ca6b8851579397f69966ce33cd4634ad"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "match_same",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skolem * (\"g\" \"s\" \"p\" \"q\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(induct \"i\" :name \"wf_induction[nat, (LAMBDA (m,n:nat): m < n)]\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(skolem * (\"i\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(flatten)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(skolem 1 (\"j\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(flatten)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"p\" \"i\" \"i\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"q\" \"i\" \"j\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(hide -4)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(hide -4)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(name \"expr\" \"g(q`seq(j)`leftnonterminal)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(generalize \"expr\" \"e\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(induct \"e\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.3",
+            "name": "(1.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.3",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.4",
+            "name": "(1.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.4",
+              "name": "(skolem * (\"t\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.4",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.5",
+            "name": "(1.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.5",
+              "name": "(skolem * (\"ae\" \"be\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(replace -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(hide -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(replace -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(hide -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(expand \"record_match\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(split -8)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.5.1",
+                "name": "(1.5.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.5.1",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(instantiate -14 (\"q`seq(j)`subproof1index\"))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(expand \"record_result\" -14)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(lift-if -14)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(split -14)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.5.1.1",
+                    "name": "(1.5.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(expand endposition)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(decompose-equality -2)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(decompose-equality -22)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.5.1.2",
+                    "name": "(1.5.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.5.1.2",
+                      "name": "(bash)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "branch": "1.5.2",
+                "name": "(1.5.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.5.2",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(instantiate * (\"p`seq(i)`subproof1index\"))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(instantiate * (\"q`seq(j)`subproof1index\"))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(expand \"record_result\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.2",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.6",
+            "name": "(1.6)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.6",
+              "name": "(skolem * (\"ae\" \"be\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(replace -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(hide -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(replace -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(hide -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(instantiate -8 (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"record_match\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"record_result\" -10)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(split -8)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.6.1",
+                "name": "(1.6.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.6.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "1.6.2",
+                "name": "(1.6.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.6.2",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(lift-if -13)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(split -13)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.6.2.1",
+                    "name": "(1.6.2.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.6.2.1",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.6.2.2",
+                    "name": "(1.6.2.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.7",
+            "name": "(1.7)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.7",
+              "name": "(skolem * (\"ae\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(replace -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(replace -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(instantiate * (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.8",
+            "name": "(1.8)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.8",
+              "name": "(skolem * (\"ae\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(replace -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(replace -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(instantiate * (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(use \"wf_nat\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "proof.intro_well_formed_record": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "intro_well_formed_record",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "intro_well_formed_record",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC1": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC2": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC2",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC3": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC3",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC4": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC4",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC5": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC5",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.well_formed_record_TCC6": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "well_formed_record_TCC6",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "well_formed_record_TCC6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "proof.match_same": [
+  {
+   "info": {
+    "theory": "proof",
+    "formula": "match_same",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "match_same",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skolem * (\"g\" \"s\" \"p\" \"q\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(induct \"i\" :name \"wf_induction[nat, (LAMBDA (m,n:nat): m < n)]\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(skolem * (\"i\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(flatten)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(skolem * (\"j\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(flatten)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"p\" \"i\" \"i\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"q\" \"i\" \"j\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(hide -4 -5)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(name \"expr\" \"g(q`seq(j)`leftnonterminal)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(generalize \"expr\" \"e\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(induct \"e\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.3",
+            "name": "(1.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.3",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.4",
+            "name": "(1.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.4",
+              "name": "(skolem * (\"t\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.4",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.5",
+            "name": "(1.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.5",
+              "name": "(skolem * (\"ae\" \"be\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(replace -7 :hide? T)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(replace -1 :hide? T)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(expand \"record_match\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(instantiate -10 (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(expand \"record_result\" -10)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(split -8)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.5.1",
+                "name": "(1.5.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.5.1",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.5.1",
+                  "name": "(case \"q`seq(q`seq(j)`subproof1index)`success?\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.5.1.1",
+                    "name": "(1.5.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(decompose-equality)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(expand \"endposition\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(expand \"record_result\" -18)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(case \"p`seq(p`seq(i)`subproof2index)`success?\")",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "1.5.1.1.1",
+                        "name": "(1.5.1.1.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.5.1.1.1",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         },
+                         {
+                          "branch": "1.5.1.1.1",
+                          "name": "(decompose-equality)",
+                          "type": "proof-command",
+                          "rules": []
+                         },
+                         {
+                          "branch": "1.5.1.1.1",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "1.5.1.1.2",
+                        "name": "(1.5.1.1.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.5.1.1.2",
+                          "name": "(grind)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.5.1.2",
+                    "name": "(1.5.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.5.1.2",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "branch": "1.5.2",
+                "name": "(1.5.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.5.2",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.6",
+            "name": "(1.6)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.6",
+              "name": "(skolem * (\"ae\" \"be\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(replace -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(hide -7)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(replace -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(hide -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(instantiate -8 (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"record_match\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand \"record_result\" -10)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(split -8)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.6.1",
+                "name": "(1.6.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.6.1",
+                  "name": "(grind)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "1.6.2",
+                "name": "(1.6.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.6.2",
+                  "name": "(flatten)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(lift-if -13)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.6.2",
+                  "name": "(split -13)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.6.2.1",
+                    "name": "(1.6.2.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.6.2.1",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.6.2.2",
+                    "name": "(1.6.2.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.6.2.2",
+                      "name": "(grind)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.7",
+            "name": "(1.7)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.7",
+              "name": "(skolem * (\"ae\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(instantiate * (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.7",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.8",
+            "name": "(1.8)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.8",
+              "name": "(skolem * (\"ae\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(expand \"well_formed_record\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(flatten)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(instantiate * (\"p`seq(i)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(instantiate * (\"q`seq(j)`subproof1index\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.8",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(use \"wf_nat\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}
