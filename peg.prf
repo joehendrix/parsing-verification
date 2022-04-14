@@ -210,7 +210,7 @@
       (("1" (skolem * ("i"))
         (("1" (flatten)
           (("1" (skolem * ("j"))
-            (("1" (flatten)
+            (("1" (with-labels (flatten) ((well_p well_q -)))
               (("1"
                 (lemma "intro_well_formed_record"
                  ("g" "g" "s" "s" "p" "p" "i" "i"))
@@ -218,7 +218,7 @@
                   (lemma "intro_well_formed_record"
                    ("g" "g" "s" "s" "p" "q" "i" "j"))
                   (("1" (assert)
-                    (("1" (hide -4 -5)
+                    (("1" (hide well_p well_q)
                       (("1" (name "expr" "g(q`seq(j)`leftnonterminal)")
                         (("1" (generalize "expr" "e")
                           (("1" (induct "e")
@@ -229,37 +229,51 @@
                               (("4" (grind) nil nil)) nil)
                              ("5" (skolem * ("ae" "be"))
                               (("5"
-                                (flatten)
+                                (with-labels
+                                 (flatten)
+                                 ((is_seq
+                                   well_q
+                                   well_p
+                                   h
+                                   i_lt
+                                   j_lt
+                                   nt_eq
+                                   pos_eq
+                                   -)))
                                 (("5"
                                   (expand "well_formed_record")
                                   (("5"
-                                    (replace -7 :hide? T)
+                                    (replace nt_eq :hide? T)
                                     (("5"
-                                      (replace -1 :hide? T)
+                                      (replace is_seq :hide? T)
                                       (("5"
                                         (assert)
                                         (("5"
                                           (expand "record_match")
                                           (("5"
-                                            (flatten)
+                                            (with-labels
+                                             (flatten well_p)
+                                             ((- - - p_rest)))
                                             (("5"
-                                              (instantiate
-                                               *
-                                               ("p`seq(i)`subproof1index")
-                                               :copy?
-                                               T)
+                                              (with-labels
+                                               (instantiate
+                                                h
+                                                ("p`seq(i)`subproof1index")
+                                                :copy?
+                                                T)
+                                               ((h1)))
                                               (("5"
                                                 (assert)
                                                 (("5"
                                                   (instantiate
-                                                   -10
+                                                   h1
                                                    ("q`seq(j)`subproof1index"))
                                                   (("5"
                                                     (expand
                                                      "record_result"
-                                                     -10)
+                                                     h1)
                                                     (("5"
-                                                      (split -8)
+                                                      (split p_rest)
                                                       (("1"
                                                         (flatten)
                                                         (("1"
@@ -287,7 +301,7 @@
                                                                         (("1"
                                                                           (expand
                                                                            "record_result"
-                                                                           -18)
+                                                                           h)
                                                                           (("1"
                                                                             (case
                                                                              "p`seq(p`seq(i)`subproof2index)`success?")
@@ -339,87 +353,94 @@
                               nil)
                              ("6" (skolem * ("ae" "be"))
                               (("6"
-                                (flatten)
+                                (with-labels
+                                 (flatten)
+                                 ((is_choice
+                                   p_wellformed
+                                   q_wellformed
+                                   h
+                                   -
+                                   -
+                                   nt_eq
+                                   pos_eq)))
                                 (("6"
                                   (expand "well_formed_record")
                                   (("6"
-                                    (replace -7)
+                                    (replace nt_eq :hide? T)
                                     (("6"
-                                      (hide -7)
+                                      (replace is_choice :hide? T)
                                       (("6"
-                                        (replace -1)
+                                        (assert)
                                         (("6"
-                                          (hide -1)
+                                          (flatten
+                                           p_wellformed
+                                           q_wellformed)
                                           (("6"
-                                            (assert)
+                                            (with-labels
+                                             (instantiate
+                                              h
+                                              ("p`seq(i)`subproof1index")
+                                              :copy?
+                                              T)
+                                             ((h1)))
                                             (("6"
-                                              (flatten)
+                                              (assert)
                                               (("6"
                                                 (instantiate
-                                                 *
-                                                 ("p`seq(i)`subproof1index")
-                                                 :copy?
-                                                 T)
+                                                 h1
+                                                 ("q`seq(j)`subproof1index"))
                                                 (("6"
-                                                  (assert)
+                                                  (expand
+                                                   "record_match")
                                                   (("6"
-                                                    (instantiate
-                                                     -8
-                                                     ("q`seq(j)`subproof1index"))
+                                                    (flatten)
                                                     (("6"
-                                                      (expand
-                                                       "record_match")
+                                                      (assert)
                                                       (("6"
-                                                        (flatten)
+                                                        (expand
+                                                         "record_result"
+                                                         h1)
                                                         (("6"
-                                                          (assert)
-                                                          (("6"
-                                                            (expand
-                                                             "record_result"
-                                                             -10)
-                                                            (("6"
-                                                              (split
-                                                               -8)
-                                                              (("1"
-                                                                (grind)
-                                                                nil
-                                                                nil)
-                                                               ("2"
-                                                                (flatten)
+                                                          (split
+                                                           q_wellformed)
+                                                          (("1"
+                                                            (grind)
+                                                            nil
+                                                            nil)
+                                                           ("2"
+                                                            (flatten)
+                                                            (("2"
+                                                              (assert)
+                                                              (("2"
+                                                                (lift-if
+                                                                 h1)
                                                                 (("2"
-                                                                  (assert)
-                                                                  (("2"
-                                                                    (lift-if
-                                                                     -13)
+                                                                  (split
+                                                                   h1)
+                                                                  (("1"
+                                                                    (flatten)
+                                                                    (("1"
+                                                                      (assert)
+                                                                      nil
+                                                                      nil))
+                                                                    nil)
+                                                                   ("2"
+                                                                    (assert)
                                                                     (("2"
-                                                                      (split
-                                                                       -13)
-                                                                      (("1"
-                                                                        (flatten)
-                                                                        (("1"
-                                                                          (assert)
-                                                                          nil
-                                                                          nil))
-                                                                        nil)
-                                                                       ("2"
-                                                                        (assert)
+                                                                      (flatten)
+                                                                      (("2"
+                                                                        (instantiate
+                                                                         h
+                                                                         ("p`seq(i)`subproof2index"))
                                                                         (("2"
-                                                                          (flatten)
+                                                                          (assert)
                                                                           (("2"
                                                                             (instantiate
-                                                                             *
-                                                                             ("p`seq(i)`subproof2index"))
+                                                                             h
+                                                                             ("q`seq(j)`subproof2index"))
                                                                             (("2"
-                                                                              (assert)
-                                                                              (("2"
-                                                                                (instantiate
-                                                                                 *
-                                                                                 ("q`seq(j)`subproof2index"))
-                                                                                (("2"
-                                                                                  (grind)
-                                                                                  nil
-                                                                                  nil))
-                                                                                nil))
+                                                                              (grind)
+                                                                              nil
                                                                               nil))
                                                                             nil))
                                                                           nil))
@@ -558,8 +579,8 @@
     (expression_induction formula-decl nil grammar nil)
     (real_lt_is_strict_total_order name-judgement
      "(strict_total_order?[real])" real_props nil)
-    (below type-eq-decl nil naturalnumbers nil)
     (intro_well_formed_record formula-decl nil proof nil)
+    (below type-eq-decl nil naturalnumbers nil)
     (wf_nat formula-decl nil naturalnumbers nil))
    shostak)))
 

@@ -1315,7 +1315,7 @@
          },
          {
           "branch": "1",
-          "name": "(flatten)",
+          "name": "(with-labels (flatten) ((well_p well_q -)))",
           "type": "proof-command",
           "rules": []
          },
@@ -1339,7 +1339,7 @@
          },
          {
           "branch": "1",
-          "name": "(hide -4 -5)",
+          "name": "(hide well_p well_q)",
           "type": "proof-command",
           "rules": []
          },
@@ -1431,7 +1431,7 @@
              },
              {
               "branch": "1.5",
-              "name": "(flatten)",
+              "name": "(with-labels (flatten) ((is_seq well_q well_p h i_lt j_lt nt_eq pos_eq -)))",
               "type": "proof-command",
               "rules": []
              },
@@ -1443,13 +1443,13 @@
              },
              {
               "branch": "1.5",
-              "name": "(replace -7 :hide? T)",
+              "name": "(replace nt_eq :hide? T)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.5",
-              "name": "(replace -1 :hide? T)",
+              "name": "(replace is_seq :hide? T)",
               "type": "proof-command",
               "rules": []
              },
@@ -1467,13 +1467,13 @@
              },
              {
               "branch": "1.5",
-              "name": "(flatten)",
+              "name": "(with-labels (flatten well_p) ((- - - p_rest)))",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.5",
-              "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+              "name": "(with-labels (instantiate h (\"p`seq(i)`subproof1index\") :copy? T) ((h1)))",
               "type": "proof-command",
               "rules": []
              },
@@ -1485,19 +1485,19 @@
              },
              {
               "branch": "1.5",
-              "name": "(instantiate -10 (\"q`seq(j)`subproof1index\"))",
+              "name": "(instantiate h1 (\"q`seq(j)`subproof1index\"))",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.5",
-              "name": "(expand \"record_result\" -10)",
+              "name": "(expand \"record_result\" h1)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.5",
-              "name": "(split -8)",
+              "name": "(split p_rest)",
               "type": "proof-command",
               "rules": [
                {
@@ -1565,7 +1565,7 @@
                      },
                      {
                       "branch": "1.5.1.1",
-                      "name": "(expand \"record_result\" -18)",
+                      "name": "(expand \"record_result\" h)",
                       "type": "proof-command",
                       "rules": []
                      },
@@ -1663,7 +1663,7 @@
              },
              {
               "branch": "1.6",
-              "name": "(flatten)",
+              "name": "(with-labels (flatten) ((is_choice p_wellformed q_wellformed h - - nt_eq pos_eq)))",
               "type": "proof-command",
               "rules": []
              },
@@ -1675,25 +1675,13 @@
              },
              {
               "branch": "1.6",
-              "name": "(replace -7)",
+              "name": "(replace nt_eq :hide? T)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.6",
-              "name": "(hide -7)",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.6",
-              "name": "(replace -1)",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.6",
-              "name": "(hide -1)",
+              "name": "(replace is_choice :hide? T)",
               "type": "proof-command",
               "rules": []
              },
@@ -1705,13 +1693,13 @@
              },
              {
               "branch": "1.6",
-              "name": "(flatten)",
+              "name": "(flatten p_wellformed q_wellformed)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.6",
-              "name": "(instantiate * (\"p`seq(i)`subproof1index\") :copy? T)",
+              "name": "(with-labels (instantiate h (\"p`seq(i)`subproof1index\") :copy? T) ((h1)))",
               "type": "proof-command",
               "rules": []
              },
@@ -1723,7 +1711,7 @@
              },
              {
               "branch": "1.6",
-              "name": "(instantiate -8 (\"q`seq(j)`subproof1index\"))",
+              "name": "(instantiate h1 (\"q`seq(j)`subproof1index\"))",
               "type": "proof-command",
               "rules": []
              },
@@ -1747,13 +1735,13 @@
              },
              {
               "branch": "1.6",
-              "name": "(expand \"record_result\" -10)",
+              "name": "(expand \"record_result\" h1)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.6",
-              "name": "(split -8)",
+              "name": "(split q_wellformed)",
               "type": "proof-command",
               "rules": [
                {
@@ -1788,13 +1776,13 @@
                  },
                  {
                   "branch": "1.6.2",
-                  "name": "(lift-if -13)",
+                  "name": "(lift-if h1)",
                   "type": "proof-command",
                   "rules": []
                  },
                  {
                   "branch": "1.6.2",
-                  "name": "(split -13)",
+                  "name": "(split h1)",
                   "type": "proof-command",
                   "rules": [
                    {
@@ -1835,7 +1823,7 @@
                      },
                      {
                       "branch": "1.6.2.2",
-                      "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
+                      "name": "(instantiate h (\"p`seq(i)`subproof2index\"))",
                       "type": "proof-command",
                       "rules": []
                      },
@@ -1847,7 +1835,7 @@
                      },
                      {
                       "branch": "1.6.2.2",
-                      "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
+                      "name": "(instantiate h (\"q`seq(j)`subproof2index\"))",
                       "type": "proof-command",
                       "rules": []
                      },
