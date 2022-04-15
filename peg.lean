@@ -1,41 +1,36 @@
-
+-- This module defines
 namespace Nat
 
-def forallLt' (n:Nat) (f: ∀(i:Nat), i < n → Bool) : Nat → Bool
-| i =>
+-- `forallRange i n f` is true if f holds for all indices j from i to n-1.
+def forallRange (i:Nat) (n:Nat) (f: ∀(j:Nat), j < n → Bool) : Bool :=
   if h:i < n then
-    f i h && forallLt' n f (i+1)
+    f i h && forallRange (i+1) n f
   else
     true
-  termination_by forallLt' n f i => n-i
+  termination_by forallRange i n f => n-i
 
---set_option pp.all true
-
---theorem Eq.subst {α : Sort u} {motive : α → Prop} {a b : α} (h₁ : Eq a b) (h₂ : motive a) : motive b :=
---  Eq.ndrec h₂ h₁
-
-theorem forallLtImplies' :
-  ∀ (n i j : Nat)
-          (f : ∀(k:Nat), k < n → Bool)
-          (eq : i+j = n)
-          (p:forallLt' n f i = true)
-          (k : Nat)
-          (lb : i ≤ k)
-          (ub : k < n), f k ub = true := by
-
-  intro n i j f
+-- `forallRange` correctness theorem.
+theorem forallRangeImplies'
+  (n i j : Nat)
+  (f  : ∀(k:Nat), k < n → Bool)
+  (eq : i+j = n)
+  (p  : forallRange i n f = true)
+  (k  : Nat)
+  (lb : i ≤ k)
+  (ub : k < n)
+  : f k ub = true := by
   revert i
   induction j  with
   | zero =>
-    intro i eq p k lb ub
+    intro i eq p lb
     simp at eq
     simp [eq] at lb
     have pr := Nat.not_le_of_gt ub
     contradiction
   | succ j ind =>
-    intros i n_eq ltPred k lb ub
+    intros i n_eq ltPred lb
     have i_lt_n : i < n := Nat.le_trans (Nat.succ_le_succ lb) ub
-    unfold forallLt' at ltPred
+    unfold forallRange at ltPred
     simp [i_lt_n] at ltPred
     cases Nat.eq_or_lt_of_le lb with
     | inl hEq =>
@@ -46,18 +41,20 @@ theorem forallLtImplies' :
       have succ_i_add_j : succ i + j = n := by
         simp [Nat.succ_add]
         exact n_eq
-      apply ind (succ i) succ_i_add_j ltPred.right _ hLt
+      apply ind (succ i) succ_i_add_j ltPred.right hLt
 
-def forallLt (n:Nat) (f: ∀(i:Nat), i < n → Bool) : Bool := Nat.forallLt' n f 0
-
-theorem forallLtImplies (p:forallLt n f = true) (i:Nat) (lt : i < n)
-  : f i lt = true := forallLtImplies' n 0 n f (Nat.zero_add n) p i (Nat.zero_le i) lt
+-- Correctness theorem for `forallRange`
+theorem forallRangeImplies (p:forallRange i n f = true) {j:Nat} (lb:i ≤ j) (ub : j < n)
+  : f j ub = true :=
+    let h : i+(n-i)=n := Nat.add_sub_of_le (Nat.le_trans lb (Nat.le_of_lt ub))
+    forallRangeImplies' n i (n-i) f h p j lb ub
 
 theorem lt_or_eq_of_succ {i j:Nat} (lt : i < Nat.succ j) : i < j ∨ i = j :=
   match lt with
   | Nat.le.step m => Or.inl m
   | Nat.le.refl => Or.inr rfl
 
+-- Introduce strong induction principal for natural numbers.
 theorem strong_induction_on {p : Nat → Prop} (n:Nat)
   (h:∀n, (∀ m, m < n → p m) → p n) : p n := by
     suffices ∀n m, m < n → p m from this (succ n) n (Nat.lt_succ_self _)
@@ -78,7 +75,7 @@ theorem strong_induction_on {p : Nat → Prop} (n:Nat)
 
 end Nat
 
-
+-- Introduce strong induction principal for Fin.
 theorem Fin.strong_induction_on {P : Fin w → Prop} (i:Fin w)
   (ind : ∀(i:Fin w), (∀(j:Fin w), j < i → P j) → P i)
  : P i := by
@@ -91,6 +88,8 @@ theorem Fin.strong_induction_on {P : Fin w → Prop} (i:Fin w)
      intros z z_lt_j
      apply p _ z_lt_j
 
+namespace PEG
+
 inductive Expression (t : Type) (nt : Type) where
 | epsilon{} : Expression t nt
 | fail : Expression t nt
@@ -100,8 +99,6 @@ inductive Expression (t : Type) (nt : Type) where
 | choice : (a b : nt) → Expression t nt
 | look : (a : nt) → Expression t nt
 | notP : (e : nt) → Expression t nt
-
-open Expression
 
 def Grammar (t nt : Type _) := nt → Expression t nt
 
@@ -113,14 +110,13 @@ structure ProofRecord  (nt : Type) where
   (subproof1index : Nat)
   (subproof2index : Nat)
 
+namespace ProofRecord
+
+def endposition {nt:Type} (r:ProofRecord nt) : Nat := r.position + r.lengthofspan
 
 inductive Result where
 | fail : Result
 | success : Nat → Result
-
-namespace ProofRecord
-
-def endposition {nt:Type} (r:ProofRecord nt) : Nat := r.position + r.lengthofspan
 
 def record_result (r:ProofRecord nt) : Result :=
   if r.success then
@@ -132,21 +128,20 @@ end ProofRecord
 
 def PreProof (nt : Type) := Array (ProofRecord nt)
 
-section
-
 def record_match [dnt : DecidableEq nt] (r:ProofRecord nt) (n:nt) (i:Nat) : Bool :=
   r.leftnonterminal = n && r.position = i
 
-section
+open Expression
+
+section well_formed
 
 variable {t nt : Type}
 variable [dt : DecidableEq t]
 variable [dnt : DecidableEq nt]
 variable (g : Grammar t nt)
 variable (s : Array t)
-variable (p : PreProof nt)
 
-def well_formed_record (i:Nat) (i_lt : i < p.size) (r : ProofRecord nt) : Bool :=
+def well_formed_record (p : PreProof nt) (i:Nat) (i_lt : i < p.size) (r : ProofRecord nt) : Bool :=
   let n := r.leftnonterminal
   match g n with
   | epsilon _ _ => r.success ∧ r.lengthofspan = 0
@@ -206,11 +201,11 @@ def well_formed_record (i:Nat) (i_lt : i < p.size) (r : ProofRecord nt) : Bool :
         else
           r.success && r.lengthofspan = 0
 
-end
 
-def well_formed_proof [DecidableEq nt] [DecidableEq t] (g: Grammar t nt) (s : Array t)
-      (p : PreProof nt) : Bool :=
-  Nat.forallLt p.size (λi lt => well_formed_record g s p i lt (p.get ⟨i, lt⟩))
+def well_formed_proof (p : PreProof nt) : Bool :=
+  Nat.forallRange 0 p.size (λi lt => well_formed_record g s p i lt (p.get ⟨i, lt⟩))
+
+end well_formed
 
 def Proof {t} {nt} [DecidableEq t] [DecidableEq nt] (g:Grammar t nt) (s: Array t) :=
   { p:PreProof nt // well_formed_proof g s p }
@@ -231,9 +226,11 @@ instance : CoeFun (Proof g s) (fun p => Fin p.size → ProofRecord nt) :=
 
 theorem has_well_formed_record (p:Proof g s) (i:Fin p.size) :
   well_formed_record g s p.val i.val i.isLt (p i) :=
-    Nat.forallLtImplies p.property i.val i.isLt
+    Nat.forallRangeImplies p.property (Nat.zero_le i.val) i.isLt
 
 end Proof
+
+section correctness
 
 variable {g:Grammar t nt}
 variable {s : Array t}
@@ -249,7 +246,7 @@ theorem proof_get_to_getD (r:ProofRecord nt) (p:Proof g s) (i:Fin p.size)  :
   apply Fin.eq_of_val_eq
   trivial
 
-theorem match_same
+theorem is_deterministic
   : forall (p q : Proof g s) (i: Fin p.size) (j: Fin q.size),
       (p i).leftnonterminal = (q j).leftnonterminal
       → (p i).position      = (q j).position
@@ -570,3 +567,7 @@ theorem match_same
       | inr q_sub1_fail =>
         simp [p_sub1_fail, q_sub1_fail] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
+
+end correctness
+
+end PEG

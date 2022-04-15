@@ -1,10 +1,12 @@
+
+
+
+% We formalize PEGs in Chomsky Normal Form.  In this formalization,
+% a set of PEG production rules is a mapping from non-terminals to
+% simple PEG expressions, i.e., epsilon, fail, any, terminal(a),
+% A B, A/B, &A, and !A, where A and B are nonterminals.
 grammar[NT: TYPE+, T: TYPE+]: THEORY
 BEGIN
-  % A PEG in Chomsky Normal Form consists of a set of (pseudo-)productions
-  % mapping nonterminals to simple PEG expressions, i.e., epsilon, fail,
-  % any, terminal(a), A B, A/B, &A, and !A, where A and B are
-  % nonterminals.
-
   expression: DATATYPE
     BEGIN
       epsilon : epsilon?
@@ -20,75 +22,64 @@ BEGIN
   grammar: TYPE = [NT -> expression]
 END grammar
 
+% Theory for formalizing proofs in a grammar.
 proof[NT: TYPE+, T: TYPE+]: THEORY
 BEGIN
   IMPORTING grammar
 
-  % Given a string s of length n, the proof of parse is a sequence of records of the form:
-  % [# leftnonterminal: NT,
-  %    success?: bool,
-  %    position: nat,
-  %    lengthofspan: nat,
-  %    subproof1index: nat,
-  %    subproof2index: nat #]
-  % position is an index into the input, and the other two are indices into the proof.
+  % Given a string s of length n, the proof of parse is a sequence of records
+  % containing the left-nonterminal and starting position of the parse along with
+  % a record indicating whether the parse was success and if so, the length of the
+  % span.  There are also two indices for referencing subproofs.  The purpose of these
+  % indices depends on the expression associated with the left nonterminal, and
+  % by using indices instead of nested records we facilitate explicit sharing of
+  % subproofs in different proof records.
   proof_record : TYPE =
    [# leftnonterminal: NT,
-     success?: bool,
-     position: nat,
-     lengthofspan: nat,
-     subproof1index: nat,
-     subproof2index: nat #]
+      position: nat,
+      success?: bool,
+      lengthofspan: nat,
+      subproof1index: nat,
+      subproof2index: nat #]
 
+  % A grammar is a finite sequence of proof records.  Sub
   pre_proof: TYPE = finseq[proof_record]
 
   g : VAR grammar[NT, T]
   p : VAR pre_proof
   s : VAR finseq[T]
-  n : VAR NT
+
+  % Check if record matches expected left non-terminal and position.
+  record_match(r:proof_record, n:NT, i:nat): boolean = r`leftnonterminal = n ∧ r`position = i
+
+  % Return the index of one past the last character in the parsed substring.
+  endposition(r:proof_record): nat = r`position + r`lengthofspan
 
   % well_formed(g, s, p, i) return true if step i in proof p is well-formed
 
-  % Each entry must be well-formed:
-  %  epsilon@i always succeeds
-  % any@i always succeeds except at the end of s
-  % terminal(a)@i succeeds iff s(i) = a
-  % fail always fails
-  % N@i succeeds with span l iff
-  % either N <- AB, and sp1 |- A@i succeeds with span lA, and sp2 |- B@i+lA succeeds with span l - lA.
-  %  or N <- A/B and sp1 |- A@i succeeds with span l, or sp1 |- A@i fails and sp2 |- B(i) succeeds with span l
-  % or N <- &A and sp1 |- A@i succeeds and span l = 0
-  % or N <- !A and sp1 |- A@i fails and span l = 0.
-
-  r : VAR proof_record
-  endposition(r): nat = r`position + r`lengthofspan
-
-  record_match((r:proof_record),(n:NT),i:nat): boolean = r`leftnonterminal = n ∧ r`position = i
-
-  result: DATATYPE
-    BEGIN
-      parse_fail : parse_fail?
-      success(n:nat) : success?
-    END result
-
-  record_result(r):result =
-    IF r`success? THEN
-      success(r`lengthofspan)
-    ELSE
-      parse_fail
-    ENDIF
-
-  well_formed_record(g, s, p, (i:below(p`length)), (r:proof_record)): boolean =
+  % well_formed_record(g, s, p, i, r) returns true if the record is r
+  % well-formed with respect to grammar g, terminal sequence s,
+  % proof p, and subproof index bound i.
+  %
+  % It does this by pattern matching on the production associated with
+  % the left-non-terminal against the other fields in the record.  It
+  % assumes that the proof records for all subproofs with index less
+  % than i are well-formed as well.
+  well_formed_record(g, s, p, (i:below(p`length)), r:proof_record): boolean =
     LET n = r`leftnonterminal IN
     CASES g(n) OF
+      % Epsilon always succeeds and parses no characters.
       epsilon: r`success? ∧ r`lengthofspan = 0,
+      % Fail always fails
       fail: NOT(r`success?),
+      % Any succeeds if it can parse any one character.
       any:
         IF r`position < s`length THEN
           r`success? ∧ r`lengthofspan = 1
         ELSE
           NOT(r`success?)
         ENDIF,
+      % terminal(t) succeeds if the next character is t.
       terminal(t) :
         IF r`position < s`length THEN
           IF s`seq(r`position) = t THEN
@@ -99,6 +90,8 @@ BEGIN
         ELSE
 	        NOT(r`success?)
         ENDIF,
+      % seq(a, b) succeeds if a succeeds and b can successfully parse
+      % starting from the end of a.
       seq(a, b) :
         r`subproof1index < i
         & LET r1 = p`seq(r`subproof1index) IN
@@ -107,14 +100,15 @@ BEGIN
               r`subproof2index < i
 	            & LET r2 = p`seq(r`subproof2index) IN
                 record_match(r2, b, endposition(r1))
-              & IF r2`success? THEN
-	      	        r`success? ∧ endposition(r) = endposition(r2)
-                ELSE
-                  NOT(r`success?)
-                ENDIF
+                & IF r2`success? THEN
+	      	          r`success? ∧ endposition(r) = endposition(r2)
+                  ELSE
+                    NOT(r`success?)
+                  ENDIF
             ELSE
               NOT(r`success?)
             ENDIF,
+      % choice(a, b) succeeds if a succeeds or a fails and b succeeds.
       choice(a, b) :
         r`subproof1index < i
         & LET r1 = p`seq(r`subproof1index) IN
@@ -123,45 +117,70 @@ BEGIN
               r`success? & r`lengthofspan = r1`lengthofspan
             ELSE
               r`subproof2index < i
-	      & LET r2 = p`seq(r`subproof2index) IN
+	            & LET r2 = p`seq(r`subproof2index) IN
                 record_match(r2, b, r`position)
-              & IF r2`success? THEN
-                  r`success? ∧ r`lengthofspan = r2`lengthofspan
-                ELSE
-                  NOT(r`success?)
-                ENDIF
+                & IF r2`success? THEN
+                    r`success? ∧ r`lengthofspan = r2`lengthofspan
+                  ELSE
+                    NOT(r`success?)
+                  ENDIF
             ENDIF,
+      % look(a) succeeds with zero length if a succeeds.
       look(a) :
         r`subproof1index < i
         & LET r1 = p`seq(r`subproof1index) IN
           record_match(r1, a, r`position)
           & IF r1`success? THEN
-	      r`success? ∧ r`lengthofspan = 0
-	    ELSE
-	      NOT(r`success?)
-	    ENDIF,
+	            r`success? ∧ r`lengthofspan = 0
+	          ELSE
+	            NOT(r`success?)
+	          ENDIF,
+      % notP(a) succeeds with zero length if a fails.
       notP(a) :
         r`subproof1index < i
         & LET r1 = p`seq(r`subproof1index) IN
           record_match(r1, a, r`position)
           & IF r1`success? THEN
-	      NOT(r`success?)
-	    ELSE
-	      r`success? ∧ r`lengthofspan = 0
-	    ENDIF
+	            NOT(r`success?)
+	          ELSE
+              r`success? ∧ r`lengthofspan = 0
+	          ENDIF
     ENDCASES
 
+  % Return true if all records in the pre-proof are well-formed.
   well_formed_proof(g, s, p): boolean =
     FORALL (i: below(p`length)): well_formed_record(g,s,p,i, p`seq(i))
 
+  % Show that a proof being well-formed implies any record in the proof is well formed.
   % @QED intro_well_formed_record proved by hendrix on Wed, 16 Mar 2022 15:17:23 GMT
   intro_well_formed_record: LEMMA
     FORALL (i:below(p`length)):
       well_formed_proof(g, s, p)
       ⇒ well_formed_record(g, s, p, i, p`seq(i))
 
-  % @QED match_same proved by hendrix on Thu, 17 Mar 2022 08:07:26 GMT
-  match_same: LEMMA
+  % Represent the result of a proof record
+  result: DATATYPE
+    BEGIN
+      % Parse failed
+      parse_fail : parse_fail?
+      % Parse succeeds and consumed n characters.
+      success(n:nat) : success?
+    END result
+
+  % Extract if the proof succeeds and if so how many characters were consumed
+  % from the record.
+  record_result(r:proof_record):result =
+    IF r`success? THEN
+      success(r`lengthofspan)
+    ELSE
+      parse_fail
+    ENDIF
+
+  % Prove that any two records in different well-formed proofs have the same
+  % result in terms of success/failure and length of parse.
+  %
+  % @QED is_deterministic proved by hendrix on Thu, 17 Mar 2022 08:07:26 GMT
+  is_deterministic: LEMMA
     FORALL (p, q : pre_proof):
       FORALL (i, j : nat):
         well_formed_proof(g, s, p)
@@ -171,6 +190,6 @@ BEGIN
         ∧ p`seq(i)`leftnonterminal = q`seq(j)`leftnonterminal
         ∧ p`seq(i)`position        = q`seq(j)`position
         ⇒ record_result(p`seq(i)) = record_result(q`seq(j))
-END proof
 
+END proof
 

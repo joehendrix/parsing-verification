@@ -18,9 +18,11 @@ the choice and negative look-ahead primitives may accept a substring only
 if the substring is not accepted by other non-terminals.
 
 In this repo, we have formalized PEGs and proofs-of-parse in both [PVS][PVS]
-and [Lean 4][Lean4], and proved that proofs-of-parse are deterministic.  That
-is two different proofs of parse will always agree on whether a string is in
-the language denoted by a grammar.
+and [Lean 4][Lean4], and proved that proofs-of-parse are deterministic.
+Specifically, we show in both languages that two different proofs of parse
+will always agree on whether a string is in the language denoted by a grammar.
+See comments in the respective `peg.pvs` and `peg.lean` files to understand
+the formalization.
 
 [PEG]: https://en.wikipedia.org/wiki/Parsing_expression_grammar
 [PVS]: https://pvs.csl.sri.com/

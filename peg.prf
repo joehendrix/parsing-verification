@@ -202,8 +202,8 @@
     (well_formed_record const-decl "boolean" proof nil)
     (well_formed_proof const-decl "boolean" proof nil))
    shostak))
- (match_same 0
-  (match_same-1 nil 3856522874
+ (is_deterministic 0
+  (is_deterministic-1 nil 3856522874
    ("" (skeep)
     ((""
       (induct "i" :name "wf_induction[nat, (LAMBDA (m,n:nat): m < n)]")
