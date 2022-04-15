@@ -1281,7 +1281,7 @@
     "rules": [
      {
       "branch": "",
-      "name": "(skolem * (\"g\" \"s\" \"p\" \"q\"))",
+      "name": "(skeep)",
       "type": "proof-command",
       "rules": []
      },
@@ -1321,13 +1321,13 @@
          },
          {
           "branch": "1",
-          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"p\" \"i\" \"i\"))",
+          "name": "(use \"intro_well_formed_record\" (\"p\" \"p\" \"i\" \"i\"))",
           "type": "proof-command",
           "rules": []
          },
          {
           "branch": "1",
-          "name": "(lemma \"intro_well_formed_record\" (\"g\" \"g\" \"s\" \"s\" \"p\" \"q\" \"i\" \"j\"))",
+          "name": "(use \"intro_well_formed_record\" (\"p\" \"q\" \"i\" \"j\"))",
           "type": "proof-command",
           "rules": []
          },
@@ -1467,7 +1467,13 @@
              },
              {
               "branch": "1.5",
-              "name": "(with-labels (flatten well_p) ((- - - p_rest)))",
+              "name": "(expand record_result)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.5",
+              "name": "(flatten)",
               "type": "proof-command",
               "rules": []
              },
@@ -1491,13 +1497,7 @@
              },
              {
               "branch": "1.5",
-              "name": "(expand \"record_result\" h1)",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.5",
-              "name": "(split p_rest)",
+              "name": "(split well_p)",
               "type": "proof-command",
               "rules": [
                {
@@ -1513,25 +1513,7 @@
                  },
                  {
                   "branch": "1.5.1",
-                  "name": "(instantiate * (\"p`seq(i)`subproof2index\"))",
-                  "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.5.1",
-                  "name": "(assert)",
-                  "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.5.1",
-                  "name": "(instantiate * (\"q`seq(j)`subproof2index\"))",
-                  "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.5.1",
-                  "name": "(case \"q`seq(q`seq(j)`subproof1index)`success?\")",
+                  "name": "(split well_q)",
                   "type": "proof-command",
                   "rules": [
                    {
@@ -1541,6 +1523,12 @@
                     "rules": [
                      {
                       "branch": "1.5.1.1",
+                      "name": "(flatten)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
                       "name": "(assert)",
                       "type": "proof-command",
                       "rules": []
@@ -1548,6 +1536,24 @@
                      {
                       "branch": "1.5.1.1",
                       "name": "(decompose-equality)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(with-labels (instantiate h (\"p`seq(i)`subproof2index\")) ((h2)))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.5.1.1",
+                      "name": "(instantiate h2 (\"q`seq(j)`subproof2index\"))",
                       "type": "proof-command",
                       "rules": []
                      },
@@ -1565,13 +1571,7 @@
                      },
                      {
                       "branch": "1.5.1.1",
-                      "name": "(expand \"record_result\" h)",
-                      "type": "proof-command",
-                      "rules": []
-                     },
-                     {
-                      "branch": "1.5.1.1",
-                      "name": "(case \"p`seq(p`seq(i)`subproof2index)`success?\")",
+                      "name": "(split well_p)",
                       "type": "proof-command",
                       "rules": [
                        {
@@ -1581,21 +1581,48 @@
                         "rules": [
                          {
                           "branch": "1.5.1.1.1",
-                          "name": "(grind)",
+                          "name": "(split well_q)",
                           "type": "proof-command",
-                          "rules": []
-                         },
-                         {
-                          "branch": "1.5.1.1.1",
-                          "name": "(decompose-equality)",
-                          "type": "proof-command",
-                          "rules": []
-                         },
-                         {
-                          "branch": "1.5.1.1.1",
-                          "name": "(grind)",
-                          "type": "proof-command",
-                          "rules": []
+                          "rules": [
+                           {
+                            "branch": "1.5.1.1.1.1",
+                            "name": "(1.5.1.1.1.1)",
+                            "type": "proof-branch",
+                            "rules": [
+                             {
+                              "branch": "1.5.1.1.1.1",
+                              "name": "(grind)",
+                              "type": "proof-command",
+                              "rules": []
+                             },
+                             {
+                              "branch": "1.5.1.1.1.1",
+                              "name": "(decompose-equality)",
+                              "type": "proof-command",
+                              "rules": []
+                             },
+                             {
+                              "branch": "1.5.1.1.1.1",
+                              "name": "(grind)",
+                              "type": "proof-command",
+                              "rules": []
+                             }
+                            ]
+                           },
+                           {
+                            "branch": "1.5.1.1.1.2",
+                            "name": "(1.5.1.1.1.2)",
+                            "type": "proof-branch",
+                            "rules": [
+                             {
+                              "branch": "1.5.1.1.1.2",
+                              "name": "(grind)",
+                              "type": "proof-command",
+                              "rules": []
+                             }
+                            ]
+                           }
+                          ]
                          }
                         ]
                        },
@@ -1663,7 +1690,7 @@
              },
              {
               "branch": "1.6",
-              "name": "(with-labels (flatten) ((is_choice p_wellformed q_wellformed h - - nt_eq pos_eq)))",
+              "name": "(with-labels (flatten) ((is_choice well_q well_p h - - nt_eq pos_eq)))",
               "type": "proof-command",
               "rules": []
              },
@@ -1693,7 +1720,19 @@
              },
              {
               "branch": "1.6",
-              "name": "(flatten p_wellformed q_wellformed)",
+              "name": "(expand record_result)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(expand record_match)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.6",
+              "name": "(flatten)",
               "type": "proof-command",
               "rules": []
              },
@@ -1717,31 +1756,13 @@
              },
              {
               "branch": "1.6",
-              "name": "(expand \"record_match\")",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.6",
-              "name": "(flatten)",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.6",
               "name": "(assert)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.6",
-              "name": "(expand \"record_result\" h1)",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.6",
-              "name": "(split q_wellformed)",
+              "name": "(split well_p)",
               "type": "proof-command",
               "rules": [
                {
@@ -1770,19 +1791,7 @@
                  },
                  {
                   "branch": "1.6.2",
-                  "name": "(assert)",
-                  "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.6.2",
-                  "name": "(lift-if h1)",
-                  "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.6.2",
-                  "name": "(split h1)",
+                  "name": "(split well_q)",
                   "type": "proof-command",
                   "rules": [
                    {
@@ -1792,13 +1801,7 @@
                     "rules": [
                      {
                       "branch": "1.6.2.1",
-                      "name": "(flatten)",
-                      "type": "proof-command",
-                      "rules": []
-                     },
-                     {
-                      "branch": "1.6.2.1",
-                      "name": "(assert)",
+                      "name": "(grind)",
                       "type": "proof-command",
                       "rules": []
                      }
@@ -1811,19 +1814,13 @@
                     "rules": [
                      {
                       "branch": "1.6.2.2",
-                      "name": "(assert)",
-                      "type": "proof-command",
-                      "rules": []
-                     },
-                     {
-                      "branch": "1.6.2.2",
                       "name": "(flatten)",
                       "type": "proof-command",
                       "rules": []
                      },
                      {
                       "branch": "1.6.2.2",
-                      "name": "(instantiate h (\"p`seq(i)`subproof2index\"))",
+                      "name": "(with-labels (instantiate h (\"p`seq(i)`subproof2index\")) ((h2)))",
                       "type": "proof-command",
                       "rules": []
                      },
@@ -1835,7 +1832,7 @@
                      },
                      {
                       "branch": "1.6.2.2",
-                      "name": "(instantiate h (\"q`seq(j)`subproof2index\"))",
+                      "name": "(instantiate h2 (\"q`seq(j)`subproof2index\"))",
                       "type": "proof-command",
                       "rules": []
                      },
