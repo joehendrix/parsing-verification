@@ -251,21 +251,18 @@ theorem is_deterministic
       (p i).leftnonterminal = (q j).leftnonterminal
       → (p i).position      = (q j).position
       → (p i).record_result = (q j).record_result := by
+  simp [ProofRecord.record_result]
   intros p q i0
-  apply @Fin.strong_induction_on _
-    (λi =>
-      ∀ (j : Fin q.size),
-          (p i).leftnonterminal = (q j).leftnonterminal
-        → (p i).position        = (q j).position
-        → (p i).record_result   = (q j).record_result) i0
-  intros i ind j eq_nt p_pos_eq_q_pos
+  induction i0 using Fin.strong_induction_on with
+  | ind i ind =>
+
+  intros j eq_nt p_pos_eq_q_pos
   have p_def := p.has_well_formed_record i
   have q_def := q.has_well_formed_record j
   simp only [well_formed_record, eq_nt, p_pos_eq_q_pos] at p_def q_def
   generalize q_j_eq : q j = q_j
   generalize e_eq : g (q_j.leftnonterminal) = e
   simp only [q_j_eq, e_eq] at p_def q_def p_pos_eq_q_pos
-  simp only [ProofRecord.record_result]
   cases e with
   | epsilon =>
      simp at p_def q_def
@@ -274,40 +271,28 @@ theorem is_deterministic
      simp at p_def q_def
      simp [p_def, q_def]
   | any =>
-    by_cases is_lt : q_j.position < s.size <;>
-      simp [is_lt] at p_def q_def <;>
+    simp at p_def
+    split at p_def <;>
+      simp [*] at p_def q_def <;>
       simp [p_def, q_def]
   | terminal t =>
-    simp only at p_def q_def
-    cases Decidable.em (q_j.position < s.size) with
-    | inl is_lt =>
-      cases Decidable.em (s.getD q_j.position t = t) with
-      | inl is_t =>
-        simp [is_lt, is_t] at p_def q_def
-        simp [p_def, q_def]
-      | inr not_t =>
-        simp [not_t] at p_def q_def
-        simp [p_def, q_def]
-    | inr not_lt =>
-      simp [not_lt] at p_def q_def
+    simp at p_def
+    split at p_def <;>
+      simp [*] at p_def q_def <;>
       simp [p_def, q_def]
   | seq a b =>
     simp [record_match, ProofRecord.endposition] at p_def q_def
+
     generalize p_sub1_eq : (p i).subproof1index = p_sub1
     generalize p_sub2_eq : (p i).subproof2index = p_sub2
-    simp only [p_sub1_eq, p_sub2_eq] at p_def
-    have p_sub1_bound := p_def.left
-    have p_sub1_nt    := p_def.right.left.left
-    have p_sub1_pos   := p_def.right.left.right
-    have p_def  := p_def.right.right
-
     generalize q_sub1_eq : q_j.subproof1index = q_sub1
     generalize q_sub2_eq : q_j.subproof2index = q_sub2
+
+    simp only [p_sub1_eq, p_sub2_eq] at p_def
     simp only [q_sub1_eq, q_sub2_eq] at q_def
-    have q_sub1_bound := q_def.left
-    have q_sub1_nt    := q_def.right.left.left
-    have q_sub1_pos   := q_def.right.left.right
-    have q_def  := q_def.right.right
+
+    have ⟨p_sub1_bound, ⟨⟨p_sub1_nt, p_sub1_pos⟩, p_def⟩⟩ := p_def
+    have ⟨q_sub1_bound, ⟨⟨q_sub1_nt, q_sub1_pos⟩, q_def⟩⟩ := q_def
 
     have ind1 := ind (Fin.mk p_sub1 (Nat.lt_trans p_sub1_bound i.isLt))
                       p_sub1_bound
@@ -315,36 +300,24 @@ theorem is_deterministic
     rw [proof_get_to_getD (p i) p,
         proof_get_to_getD q_j q
         ] at ind1
-    simp [p_sub1_nt, q_sub1_nt, p_sub1_pos, q_sub1_pos,
-          ProofRecord.record_result]
-       at ind1
+    simp [*] at ind1
 
-    cases Decidable.em ((p.val.getD p_sub1 (p i)).success = true) with
-    | inr p_sub1_fail =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inl q_sub1_success =>
+    split at p_def
+    case inr p_sub1_fail =>
+      split at q_def
+      case inl q_sub1_success =>
         simp [p_sub1_fail, q_sub1_success] at ind1
-      | inr q_sub1_fail =>
+      case inr q_sub1_fail =>
         simp [p_sub1_fail, q_sub1_fail] at p_def q_def
         simp [p_def, q_def]
-
-    | inl p_sub1_success =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inr q_sub1_fail =>
+    case inl p_sub1_success =>
+      split at q_def
+      case inr q_sub1_fail =>
         simp [p_sub1_success, q_sub1_fail] at ind1
-      | inl q_sub1_success =>
-        simp [p_sub1_success, q_sub1_success] at ind1 p_def q_def
-        have p_sub2_bound := p_def.left
-        have p_sub2_nt    := p_def.right.left.left
-        have p_sub2_pos   := p_def.right.left.right
-        simp only [p_sub1_pos, ind1] at p_sub2_pos
-        have p_def  := p_def.right.right
-
-        have q_sub2_bound := q_def.left
-        have q_sub2_nt    := q_def.right.left.left
-        have q_sub2_pos   := q_def.right.left.right
-        simp only [q_sub1_pos] at q_sub2_pos
-        have q_def  := q_def.right.right
+      case inl q_sub1_success =>
+        simp [*] at ind1 p_def q_def
+        have ⟨p_sub2_bound, ⟨⟨p_sub2_nt, p_sub2_pos⟩, p_def⟩⟩ := p_def
+        have ⟨q_sub2_bound, ⟨⟨q_sub2_nt, q_sub2_pos⟩, q_def⟩⟩ := q_def
 
         -- Instantiate second invariant on subterm 2
         have ind2 :=
@@ -354,37 +327,29 @@ theorem is_deterministic
         rw [proof_get_to_getD (p i) p,
             proof_get_to_getD q_j q
             ] at ind2
-        simp [p_sub2_nt, q_sub2_nt,
-              p_sub2_pos, q_sub2_pos,
-              ProofRecord.record_result]
-          at ind2
+        simp [*] at ind2
 
-        cases Decidable.em ((p.val.getD p_sub2 (p i)).success = true) with
-        | inr p_sub2_fail =>
-          simp [p_sub2_fail] at ind2
-
-          cases Decidable.em ((q.val.getD q_sub2 q_j).success = true) with
-          | inl q_sub2_success =>
-            simp [q_sub2_success] at ind2
-          | inr q_sub2_fail =>
-            simp [p_sub2_fail, q_sub2_fail] at p_def q_def
+        split at p_def
+        case inr p_sub2_fail =>
+          split at q_def
+          case inl q_sub2_success =>
+            simp [*] at ind2
+          case inr q_sub2_fail =>
+            simp [*] at ind2 p_def q_def
             simp [p_def, q_def]
-        | inl p_sub2_success =>
+        case inl p_sub2_success =>
           simp [p_sub2_success] at ind2
+          split at q_def
+          case inr q_sub2_fail =>
+            simp [*] at ind2
+          case inl q_sub2_success =>
+            simp [*] at ind2 p_def q_def
 
-          cases Decidable.em ((q.val.getD q_sub2 q_j).success = true) with
-          | inr q_sub2_fail =>
-            simp [q_sub2_fail] at ind2
-          | inl q_sub2_success =>
-            simp [p_sub2_success, q_sub2_success] at ind2 p_def q_def
-
-            have p_success := p_def.left
-            have p_pos := p_def.right
+            have ⟨p_success, p_pos⟩ := p_def
             simp only [p_pos_eq_q_pos,  p_sub2_pos, ind1, ind2, Nat.add_assoc] at p_pos
             have p_pos' := Nat.add_left_cancel p_pos
 
-            have q_success := q_def.left
-            have q_pos := q_def.right
+            have ⟨q_success, q_pos⟩ := q_def
             simp only [q_sub1_pos, q_sub2_pos, Nat.add_assoc] at q_pos
             have q_pos' := Nat.add_left_cancel q_pos
 
@@ -395,21 +360,13 @@ theorem is_deterministic
 
     generalize p_sub1_eq : (p i).subproof1index = p_sub1
     generalize p_sub2_eq : (p i).subproof2index = p_sub2
-    simp only [p_sub1_eq, p_sub2_eq] at p_def
-
     generalize q_sub1_eq : q_j.subproof1index = q_sub1
     generalize q_sub2_eq : q_j.subproof2index = q_sub2
+    simp only [p_sub1_eq, p_sub2_eq] at p_def
     simp only [q_sub1_eq, q_sub2_eq] at q_def
 
-    have p_sub1_bound := p_def.left
-    have p_sub1_nt    := p_def.right.left.left
-    have p_sub1_pos   := p_def.right.left.right
-    have p_def  := p_def.right.right
-
-    have q_sub1_bound := q_def.left
-    have q_sub1_nt    := q_def.right.left.left
-    have q_sub1_pos   := q_def.right.left.right
-    have q_def := q_def.right.right
+    have ⟨p_sub1_bound, ⟨⟨p_sub1_nt, p_sub1_pos⟩, p_def⟩⟩ := p_def
+    have ⟨q_sub1_bound, ⟨⟨q_sub1_nt, q_sub1_pos⟩, q_def⟩⟩ := q_def
 
     have ind1 := ind (Fin.mk p_sub1 (Nat.lt_trans p_sub1_bound i.isLt))
                       p_sub1_bound
@@ -417,34 +374,25 @@ theorem is_deterministic
     rw [proof_get_to_getD (p i) p,
         proof_get_to_getD q_j q
         ] at ind1
-    simp [p_sub1_nt, q_sub1_nt, p_sub1_pos, q_sub1_pos,
-          ProofRecord.record_result]
-       at ind1
+    simp [*] at ind1
 
-    cases Decidable.em ((p.val.getD p_sub1 (p i)).success = true) with
-    | inl p_sub1_success =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inr q_sub1_fail =>
+    split at p_def
+    case inl p_sub1_success =>
+      split at q_def
+      case inr q_sub1_fail =>
         simp [p_sub1_success, q_sub1_fail] at ind1
-      | inl q_sub1_success =>
+      case inl q_sub1_success =>
         simp [p_sub1_success, q_sub1_success] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
-    | inr p_sub1_fail =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inl q_sub1_success =>
+    case inr p_sub1_fail =>
+      split at q_def
+      case inl q_sub1_success =>
         simp [p_sub1_fail, q_sub1_success] at ind1
-      | inr q_sub1_fail =>
+      case inr q_sub1_fail =>
         simp [p_sub1_fail, q_sub1_fail] at p_def q_def
 
-        have p_sub2_bound := p_def.left
-        have p_sub2_nt    := p_def.right.left.left
-        have p_sub2_pos   := p_def.right.left.right
-        have p_def  := p_def.right.right
-
-        have q_sub2_bound := q_def.left
-        have q_sub2_nt    := q_def.right.left.left
-        have q_sub2_pos   := q_def.right.left.right
-        have q_def := q_def.right.right
+        have ⟨p_sub2_bound, ⟨⟨p_sub2_nt, p_sub2_pos⟩, p_def⟩⟩ := p_def
+        have ⟨q_sub2_bound, ⟨⟨q_sub2_nt, q_sub2_pos⟩, q_def⟩⟩ := q_def
 
         -- Instantiate second invariant on subterm 2
         have ind2 :=
@@ -454,25 +402,20 @@ theorem is_deterministic
         rw [proof_get_to_getD (p i) p,
             proof_get_to_getD q_j q
             ] at ind2
-        simp [p_sub2_nt, q_sub2_nt,
-              p_sub2_pos, q_sub2_pos,
-              ProofRecord.record_result]
-          at ind2
-
-
-        cases Decidable.em ((p.val.getD p_sub2 (p i)).success = true) with
-        | inl p_sub2_success =>
-          cases Decidable.em ((q.val.getD q_sub2 q_j).success = true) with
-          | inr q_sub2_fail =>
+        simp [*] at ind2
+        split at p_def
+        case inl p_sub2_success =>
+          split at q_def
+          case inr q_sub2_fail =>
             simp [p_sub2_success, q_sub2_fail] at ind2
-          | inl q_sub2_success =>
+          case inl q_sub2_success =>
             simp [p_sub2_success, q_sub2_success] at ind2 p_def q_def
             simp [p_def, q_def, ind2]
-        | inr p_sub2_fail =>
-          cases Decidable.em ((q.val.getD q_sub2 q_j).success = true) with
-          | inl q_sub2_success =>
+        case inr p_sub2_fail =>
+          split at q_def
+          case inl q_sub2_success =>
             simp [p_sub2_fail, q_sub2_success] at ind2
-          | inr q_sub2_fail =>
+          case inr q_sub2_fail =>
             simp [p_sub2_fail, q_sub2_fail] at p_def q_def
             simp [p_def, q_def]
 
@@ -480,20 +423,13 @@ theorem is_deterministic
     simp [record_match] at p_def q_def
 
     generalize p_sub1_eq : (p i).subproof1index = p_sub1
-    simp only [p_sub1_eq] at p_def
-
     generalize q_sub1_eq : q_j.subproof1index = q_sub1
+
+    simp only [p_sub1_eq] at p_def
     simp only [q_sub1_eq] at q_def
 
-    have p_sub1_bound := p_def.left
-    have p_sub1_nt    := p_def.right.left.left
-    have p_sub1_pos   := p_def.right.left.right
-    have p_def  := p_def.right.right
-
-    have q_sub1_bound := q_def.left
-    have q_sub1_nt    := q_def.right.left.left
-    have q_sub1_pos   := q_def.right.left.right
-    have q_def := q_def.right.right
+    have ⟨p_sub1_bound, ⟨⟨p_sub1_nt, p_sub1_pos⟩, p_def⟩⟩ := p_def
+    have ⟨q_sub1_bound, ⟨⟨q_sub1_nt, q_sub1_pos⟩, q_def⟩⟩ := q_def
 
     have ind1 := ind (Fin.mk p_sub1 (Nat.lt_trans p_sub1_bound i.isLt))
                       p_sub1_bound
@@ -501,24 +437,20 @@ theorem is_deterministic
     rw [proof_get_to_getD (p i) p,
         proof_get_to_getD q_j q
         ] at ind1
-    simp [p_sub1_nt, q_sub1_nt, p_sub1_pos, q_sub1_pos,
-          ProofRecord.record_result]
-       at ind1
-
-    cases Decidable.em ((p.val.getD p_sub1 (p i)).success = true) with
-    | inl p_sub1_success =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inr q_sub1_fail =>
+    simp [*] at ind1
+    split at p_def
+    case inl p_sub1_success =>
+      split at q_def
+      case inr q_sub1_fail =>
         simp [p_sub1_success, q_sub1_fail] at ind1
-      | inl q_sub1_success =>
+      case inl q_sub1_success =>
         simp [p_sub1_success, q_sub1_success] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
-
-    | inr p_sub1_fail =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inl q_sub1_success =>
+    case inr p_sub1_fail =>
+      split at q_def
+      case inl q_sub1_success =>
         simp [p_sub1_fail, q_sub1_success] at ind1
-      | inr q_sub1_fail =>
+      case inr q_sub1_fail =>
         simp [p_sub1_fail, q_sub1_fail] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
 
@@ -526,20 +458,11 @@ theorem is_deterministic
     simp [record_match] at p_def q_def
 
     generalize p_sub1_eq : (p i).subproof1index = p_sub1
-    simp only [p_sub1_eq] at p_def
-
     generalize q_sub1_eq : q_j.subproof1index = q_sub1
+    simp only [p_sub1_eq] at p_def
     simp only [q_sub1_eq] at q_def
-
-    have p_sub1_bound := p_def.left
-    have p_sub1_nt    := p_def.right.left.left
-    have p_sub1_pos   := p_def.right.left.right
-    have p_def  := p_def.right.right
-
-    have q_sub1_bound := q_def.left
-    have q_sub1_nt    := q_def.right.left.left
-    have q_sub1_pos   := q_def.right.left.right
-    have q_def := q_def.right.right
+    have ⟨p_sub1_bound, ⟨⟨p_sub1_nt, p_sub1_pos⟩, p_def⟩⟩ := p_def
+    have ⟨q_sub1_bound, ⟨⟨q_sub1_nt, q_sub1_pos⟩, q_def⟩⟩ := q_def
 
     have ind1 := ind (Fin.mk p_sub1 (Nat.lt_trans p_sub1_bound i.isLt))
                       p_sub1_bound
@@ -547,24 +470,21 @@ theorem is_deterministic
     rw [proof_get_to_getD (p i) p,
         proof_get_to_getD q_j q
         ] at ind1
-    simp [p_sub1_nt, q_sub1_nt, p_sub1_pos, q_sub1_pos,
-          ProofRecord.record_result]
-       at ind1
+    simp [*] at ind1
 
-    cases Decidable.em ((p.val.getD p_sub1 (p i)).success = true) with
-    | inl p_sub1_success =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inr q_sub1_fail =>
+    split at p_def
+    case inl p_sub1_success =>
+      split at q_def
+      case inr q_sub1_fail =>
         simp [p_sub1_success, q_sub1_fail] at ind1
-      | inl q_sub1_success =>
+      case inl q_sub1_success =>
         simp [p_sub1_success, q_sub1_success] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
-
-    | inr p_sub1_fail =>
-      cases Decidable.em ((q.val.getD q_sub1 q_j).success = true) with
-      | inl q_sub1_success =>
+    case inr p_sub1_fail =>
+      split at q_def
+      case inl q_sub1_success =>
         simp [p_sub1_fail, q_sub1_success] at ind1
-      | inr q_sub1_fail =>
+      case inr q_sub1_fail =>
         simp [p_sub1_fail, q_sub1_fail] at ind1 p_def q_def
         simp [p_def, q_def, ind1]
 
