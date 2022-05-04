@@ -1,0 +1,1293 @@
+{
+ "attr_proof.get_subproof_TCC1": [
+  {
+   "info": {
+    "theory": "attr_proof",
+    "formula": "get_subproof_TCC1",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "be987e536adf6d13bcf96325465901369a58b845d4d0d749f115b001ed2f49a3"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "get_subproof_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(subtype-tcc)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "attr_proof.intro_well_formed_record": [
+  {
+   "info": {
+    "theory": "attr_proof",
+    "formula": "intro_well_formed_record",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "83108dc66f194cef856a6e8e66e6f7dea11c95f23a71d0c7ba6b0733b24c75e3"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "intro_well_formed_record",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(grind)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "attr_proof.is_deterministic": [
+  {
+   "info": {
+    "theory": "attr_proof",
+    "formula": "is_deterministic",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "83108dc66f194cef856a6e8e66e6f7dea11c95f23a71d0c7ba6b0733b24c75e3"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_deterministic",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(measure-induct \"i + j\" (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(skolem * (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (flatten) ((ind wf wf - - nt -)))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(use \"intro_well_formed_record\" (\"p\" \"p\" \"i\" \"i\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(use \"intro_well_formed_record\" (\"p\" \"q\" \"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(hide wf)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(rewrite-with-fnum nt)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (instantiate ind (\"p`seq(i)`subproof1index\" \"q`seq(j)`subproof1index\") :copy? T) (ind1))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (instantiate ind (\"p`seq(i)`subproof2index\" \"q`seq(j)`subproof2index\")) (ind2))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(generalize \"g(q`seq(j)`leftnonterminal)\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(induct e)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "5",
+        "name": "(5)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "5",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "5.1",
+            "name": "(5.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.2",
+            "name": "(5.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.2",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.3",
+            "name": "(5.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.3",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.4",
+            "name": "(5.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.4",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.4",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.5",
+            "name": "(5.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.5",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.6",
+            "name": "(5.6)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.6",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.7",
+            "name": "(5.7)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.7",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.8",
+            "name": "(5.8)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.8",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.9",
+            "name": "(5.9)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.9",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.10",
+            "name": "(5.10)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.10",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.10",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.10",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.11",
+            "name": "(5.11)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.11",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.12",
+            "name": "(5.12)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.12",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.13",
+            "name": "(5.13)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.13",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.14",
+            "name": "(5.14)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.14",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.15",
+            "name": "(5.15)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.15",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.15",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.16",
+            "name": "(5.16)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.16",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.17",
+            "name": "(5.17)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.17",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.18",
+            "name": "(5.18)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.18",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.19",
+            "name": "(5.19)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.19",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.20",
+            "name": "(5.20)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.20",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.21",
+            "name": "(5.21)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.21",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.21",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "5.21",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.22",
+            "name": "(5.22)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.22",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.23",
+            "name": "(5.23)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.23",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.24",
+            "name": "(5.24)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.24",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "5.25",
+            "name": "(5.25)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "5.25",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "6",
+        "name": "(6)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "6",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "6.1",
+            "name": "(6.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.1",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.2",
+            "name": "(6.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.2",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.2",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.3",
+            "name": "(6.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.3",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.3",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.4",
+            "name": "(6.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.4",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.4",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.5",
+            "name": "(6.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.5",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.5",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.6",
+            "name": "(6.6)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.6",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.6",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.7",
+            "name": "(6.7)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.7",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.7",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.8",
+            "name": "(6.8)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.8",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.8",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "6.9",
+            "name": "(6.9)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "6.9",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "6.9",
+              "name": "(grind)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "7",
+        "name": "(7)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "7",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "7.1",
+            "name": "(7.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "7.1",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.2",
+            "name": "(7.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.2",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.3",
+            "name": "(7.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.3",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.4",
+            "name": "(7.4)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.4",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.5",
+            "name": "(7.5)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.5",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.6",
+            "name": "(7.6)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.6",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.7",
+            "name": "(7.7)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.7",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.8",
+            "name": "(7.8)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.8",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.9",
+            "name": "(7.9)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.9",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "7.9",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.10",
+            "name": "(7.10)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.10",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.11",
+            "name": "(7.11)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.11",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.12",
+            "name": "(7.12)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.12",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.13",
+            "name": "(7.13)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.13",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.14",
+            "name": "(7.14)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.14",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.15",
+            "name": "(7.15)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.15",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.16",
+            "name": "(7.16)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.16",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.17",
+            "name": "(7.17)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.17",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "7.17",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.18",
+            "name": "(7.18)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.18",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.19",
+            "name": "(7.19)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.19",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.20",
+            "name": "(7.20)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.20",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.21",
+            "name": "(7.21)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.21",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.22",
+            "name": "(7.22)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.22",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.23",
+            "name": "(7.23)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.23",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "7.24",
+            "name": "(7.24)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "7.24",
+              "name": "(decompose-equality)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "8",
+        "name": "(8)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "8",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "attr_proof.is_deterministic2": [
+  {
+   "info": {
+    "theory": "attr_proof",
+    "formula": "is_deterministic2",
+    "status": "unfinished",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "873c651a22eb3f7c3cd0b202e3c59bed0f14b2b7d9ab2b9f0814c48262475aaf"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "is_deterministic2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(measure-induct \"i + j\" (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(skolem * (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (flatten) ((ind wf wf - - nt -)))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(use \"intro_well_formed_record\" (\"p\" \"p\" \"i\" \"i\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(use \"intro_well_formed_record\" (\"p\" \"q\" \"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(hide wf)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (instantiate ind (\"p`seq(i)`subproof1index\" \"q`seq(j)`subproof1index\") :copy? T) (ind1))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(with-labels (instantiate ind (\"p`seq(i)`subproof2index\" \"q`seq(j)`subproof2index\")) (ind2))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(rewrite-with-fnum nt)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(generalize \"g(q`seq(j)`leftnonterminal)\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(induct e)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(skeep)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(hide -3 -4)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(grind)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "3.1",
+            "name": "(3.1)",
+            "type": "proof-branch",
+            "rules": []
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

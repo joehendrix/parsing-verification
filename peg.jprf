@@ -1096,7 +1096,7 @@
     "formula": "intro_well_formed_record",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "f9d0358ec1c3e1471ce058f50c5140da324cbd687651a35ec4c07c4f6796b9c4"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1121,7 +1121,7 @@
     "formula": "well_formed_record_TCC1",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1146,7 +1146,7 @@
     "formula": "well_formed_record_TCC2",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1171,7 +1171,7 @@
     "formula": "well_formed_record_TCC3",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1196,7 +1196,7 @@
     "formula": "well_formed_record_TCC4",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1221,7 +1221,7 @@
     "formula": "well_formed_record_TCC5",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1246,7 +1246,7 @@
     "formula": "well_formed_record_TCC6",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "4e363da27a972d76533b0d35b0159e223922775edb863fc9b223de138d2401f3"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {
@@ -1271,7 +1271,7 @@
     "formula": "is_deterministic",
     "status": "proved",
     "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
-    "shasum": "d6947f2b8ac01265646579dc06d2784a44b1f430eb4ddc21d0e313bb8ab770b6"
+    "shasum": "e86333c119d49cbff262d54c415627904c3771a1ff4bbc66a7f5c93619836c03"
    },
    "origin": ".prf",
    "proofTree": {

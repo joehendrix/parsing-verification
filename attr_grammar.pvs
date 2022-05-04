@@ -1,0 +1,293 @@
+%%
+% @theory: attr_grammar
+% @author: hendrix
+% @date: Fri, 22 Apr 2022 22:10:56 GMT
+%%
+
+% We formalize PEGs in Chomsky Normal Form.  In this formalization,
+% a set of PEG production rules is a mapping from non-terminals to
+% simple PEG expressions, i.e., epsilon, fail, any, terminal(a),
+% A B, A/B, &A, and !A, where A and B are nonterminals.
+attr_grammar[NT: TYPE+, T: TYPE+, attrs: TYPE ]: THEORY
+BEGIN
+
+  % Denotes the attributes synthesized by an expression
+  % or nothing if the synthesis fails
+  syn_attrs: DATATYPE
+    BEGIN
+      syn_attrs(a : attrs) : syn_attrs?
+      syn_failed : syn_failed?
+    END syn_attrs
+
+  expression: DATATYPE
+    BEGIN
+      % epsilon(f) accepts an empty string with synthesized attributes "b"
+      % if "f(a)" returns "b" given inherited attributes "a".
+      epsilon(epsyn: [attrs -> syn_attrs]) : epsilon?
+      % fail always fails
+      fail : fail?
+      % any(f) accepts a character "t" with synthesized attributes "b"
+      % if "f(a, t)" returns "b" given inherited attributes "a" and character
+      % "t".
+      any(syn: [attrs, T -> syn_attrs]) : any?
+      % terminal(t, f) accepts "t" with synthesized attributes "b" if
+      % "f(a)" returns "b" given inherited attributes "a".
+      terminal(a: T, asyn: [attrs -> syn_attrs]) : terminal?
+      % Given inherited attributes "a", "seq(m, n, f, g, h)" accepts a string "uv" with
+      % synthesized attributes "d" if:
+      % * given attributes "f(a)", "m" accepts "u" with attributes "b",
+      % * given inherited attributes "g(a, b)", "n" accepts "v" and returns "c", and
+      % * "h(a, b, c)" returns attributes "d".
+      seq(a, b: NT,
+          f : [attrs -> syn_attrs],
+          g : [attrs, attrs -> syn_attrs],
+          h : [attrs, attrs, attrs -> syn_attrs])
+        : seq?
+      % "choice(m, n, f, p, g, q)" accepts "u' with synthesized attributes "c" if
+      % "m' accepts "u" with attributes "f(a)" returns "b" and "p(a, b) = c",
+      % otherwise it accepts "u" if "n" accepts "u" with "g(a)", returns "d" and
+      % "q(a, d) = c".
+      choice(e1, e2: NT,
+             chofst: [attrs -> attrs],
+             resfst: [attrs, attrs -> attrs],
+             chosnd: [attrs -> attrs],
+             ressnd: [attrs, attrs -> attrs])
+        : or?
+      % Given attributes "a", check(m, f, g) accepts the empty string with attributes "b"
+      % if "m" accepts some string given attributes "f(a)" returning "c" and "g(a, c) = b".
+      check(e: NT,
+            ein: [attrs -> syn_attrs],
+            eout: [attrs, attrs -> syn_attrs])
+        : and?
+      % Given attributes "a", neg(m, f, g) accepts the empty string with attributes "b"
+      % if "m" rejects the input given attributes "f(a)" and "g(a) = b".
+      neg(e: NT,
+          ein: [attrs -> syn_attrs],
+          eout: [attrs -> attrs])
+        : not?
+    END expression
+
+  grammar: TYPE = [NT -> expression]
+END attr_grammar
+
+% Theory for formalizing proofs in a grammar.
+attr_proof[NT: TYPE+, T: TYPE+, attrs: TYPE]: THEORY
+BEGIN
+  IMPORTING attr_grammar[NT, T, attrs]
+
+  % Given a string s of length n, the proof of parse is a sequence of records
+  % containing the left-nonterminal and starting position of the parse along with
+  % a record indicating whether the parse was success and if so, the length of the
+  % span.  There are also two indices for referencing subproofs.  The purpose of these
+  % indices depends on the expression associated with the left nonterminal, and
+  % by using indices instead of nested records we facilitate explicit sharing of
+  % subproofs in different proof records.
+  proof_record : TYPE =
+   [# leftnonterminal: NT,
+      position: nat,
+      inattr: attrs,
+      success?: bool,
+      lengthofspan: nat,
+      subproof1index: nat,
+      subproof2index: nat,
+      outattr: attrs #]
+
+  % A grammar is a finite sequence of proof records.  Sub
+  pre_proof: TYPE = finseq[proof_record]
+
+  g : VAR grammar[NT, T, attrs]
+  p : VAR pre_proof
+  s : VAR finseq[T]
+
+  % Check if record matches expected left non-terminal and position.
+  record_match(r:proof_record, n:NT, i:nat, a:attrs): boolean =
+    r`leftnonterminal = n & r`position = i & r`inattr = a
+
+  % Return the index of one past the last character in the parsed substring.
+  endposition(r:proof_record): nat = r`position + r`lengthofspan
+
+
+ % Represent the result of a proof record
+  result: DATATYPE
+    BEGIN
+      % Parse failed
+      parse_fail : parse_fail?
+      % success(n, a) succeeds at end position n and with attributes a.
+      success(n:nat, a: attrs) : success?
+    END result
+
+  % Extract if the proof succeeds and if so how many characters were consumed
+  % from the record.
+  record_result(r:proof_record):result =
+    IF r`success? THEN
+      success(r`lengthofspan, r`outattr)
+    ELSE
+      parse_fail
+    ENDIF
+
+  % well_formed(g, s, p, i) return true if step i in proof p is well-formed
+
+  % Represent the result of a proof record
+  partial_result: DATATYPE
+    BEGIN
+      rec_invalid : rec_invalid?
+      % Parse failed
+      rec_fail : rec_fail?
+      % success(n, a) succeeds at end position n and with attributes a.
+      rec_success(n:nat, a: attrs) : rec_success?
+    END partial_result
+
+  % Read a character and pass to continuation or fail.
+  read_char(s:finseq[T], i:nat, f:[T -> partial_result]): partial_result =
+    IF i < s`length THEN
+      f(s`seq(i))
+    ELSE
+      rec_fail
+    ENDIF
+
+  % Ccombinator that extracts synthesized attributes and passes to continuation
+  % or expects a failure if this cannot be done.
+  expect_syn_attrs(s: syn_attrs[], f:[attrs -> partial_result]): partial_result =
+    CASES s OF
+      syn_failed: rec_fail,
+      syn_attrs(o): f(o)
+    ENDCASES
+
+  % get_subproof(p,n,i, m, pos, a, s f) extracts the subproof at index i checks that
+  % it is below the index n, and that it corresponds to the expected location.
+  % If one of those fail, then it returns rec_invalid to indicate the subproof is invalid.
+  % Otherwise it invokes s or f depending on whether the subproof was successful.
+  get_subproof(p: pre_proof, n: below(p`length), i: nat, m: NT, pos: nat, a: attrs,
+               success:[nat, attrs -> partial_result],
+               fail:partial_result): partial_result =
+    IF i < n THEN
+      LET r1 = p`seq(i) IN
+      IF record_match(r1, m, pos, a) THEN
+        IF r1`success? THEN
+          success(endposition(r1), r1`outattr)
+        ELSE
+          fail
+        ENDIF
+      ELSE
+        rec_invalid
+      ENDIF
+    ELSE
+      rec_invalid
+    ENDIF
+
+  % eval_record(g, s, p, i, r) returns true if the record is r
+  % well-formed with respect to grammar g, terminal sequence s,
+  % proof p, and subproof index bound i.
+  %
+  % It does this by pattern matching on the production associated with
+  % the left-non-terminal against the other fields in the record.  It
+  % assumes that the proof records for all subproofs with index less
+  % than i are well-formed as well.
+  eval_record(g, s, p, (i:below(p`length)), r:proof_record, e:expression): partial_result =
+    CASES e OF
+      % Epsilon always succeeds and parses no characters.
+      epsilon(f):
+        expect_syn_attrs(f(r`inattr), LAMBDA (o:attrs): rec_success(r`position, o)),
+      % Fail always failså
+      fail:
+        rec_fail,
+      % Any succeeds if it can parse any one character.
+      any(f):
+        read_char(s, r`position, LAMBDA (t:T):
+          expect_syn_attrs(f(r`inattr, t), LAMBDA (o:attrs):
+            rec_success(r`position + 1, o))),
+      % terminal(t) succeeds if the next character is t.
+      terminal(t, f):
+        read_char(s, r`position, LAMBDA (u:T):
+          IF u = t THEN
+            expect_syn_attrs(f(r`inattr), LAMBDA (o:attrs):
+              rec_success(r`position + 1, o))
+          ELSE
+            rec_fail
+          ENDIF),
+      % seq(a, b) succeeds if a succeeds and b can successfully parse
+      % starting from the end of a.
+      seq(m, n, f, g, h):
+        expect_syn_attrs(f(r`inattr), LAMBDA (r1_in: attrs):
+          get_subproof(p, i, r`subproof1index, m, r`position, r1_in,
+            LAMBDA (r1_end: nat), (r1_syn: attrs):
+              expect_syn_attrs(g(r`inattr, r1_syn), LAMBDA (r2_in: attrs):
+                get_subproof(p, i, r`subproof2index, n, r1_end, r2_in,
+                  LAMBDA (r2_end: nat), (r2_syn: attrs):
+                    expect_syn_attrs(h(r`inattr, r1_syn, r2_syn), LAMBDA (o: attrs):
+                      rec_success(r2_end, o)),
+                  rec_fail)),
+            rec_fail)),
+      % choice(a, b) succeeds if a succeeds or a fails and b succeeds.
+      choice(m, n, m_in, m_out, n_in, n_out):
+        get_subproof(p, i, r`subproof1index, m, r`position, m_in(r`inattr),
+          LAMBDA (r1_end: nat), (r1_syn: attrs):
+            rec_success(r1_end, m_out(r`inattr, r1_syn)),
+          get_subproof(p, i, r`subproof2index, n, r`position, n_in(r`inattr),
+            LAMBDA (r2_end: nat), (r2_syn: attrs):
+              rec_success(r2_end, n_out(r`inattr, r2_syn)),
+            rec_fail)),
+      % look(a) succeeds with zero length if a succeeds.
+      check(a, f, g):
+        expect_syn_attrs(f(r`inattr), LAMBDA (a_in: attrs):
+          get_subproof(p, i, r`subproof1index, a, r`position, a_in,
+            LAMBDA (r1_end: nat), (r1_syn: attrs):
+              expect_syn_attrs(g(r`inattr, r1_syn),
+                LAMBDA (a_out: attrs): rec_success(r`position, a_out)),
+            rec_fail)),
+      % notP(a) succeeds with zero length if a fails.
+      neg(a, f, g):
+        CASES f(r`inattr) OF
+          syn_failed:
+            rec_success(r`position, g(r`inattr)),
+          syn_attrs(a_in):
+            get_subproof(p, i, r`subproof1index, a, r`position, a_in,
+              LAMBDA (r1_end: nat), (r1_syn: attrs): rec_fail,
+              rec_success(r`position, g(r`inattr)))
+        ENDCASES
+    ENDCASES
+
+  % well_formed_record(g, s, p, i, r) returns true if the record is r
+  % well-formed with respect to grammar g, terminal sequence s,
+  % proof p, and subproof index bound i.
+  %
+  % It does this by pattern matching on the production associated with
+  % the left-non-terminal against the other fields in the record.  It
+  % assumes that the proof records for all subproofs with index less
+  % than i are well-formed as well.
+  well_formed_record(g, s, p, (i:below(p`length)), r:proof_record, e:expression): boolean =
+    CASES eval_record(g, s, p, i, r, e) OF
+      rec_invalid: false,
+      rec_fail: NOT(r`success?),
+      rec_success(e, o): r`success? & endposition(r) = e & r`outattr = o
+    ENDCASES
+
+  % Return true if all records in the pre-proof are well-formed.
+  well_formed_proof(g, s, p): boolean =
+    FORALL (i: below(p`length)): well_formed_record(g,s,p,i, p`seq(i), g(p`seq(i)`leftnonterminal))
+
+  % Show that a proof being well-formed implies any record in the proof is well formed.
+  % @QED intro_well_formed_record proved by hendrix on Wed, 16 Mar 2022 15:17:23 GMT
+  intro_well_formed_record: LEMMA
+    FORALL (i:below(p`length)):
+      well_formed_proof(g, s, p)
+      ⇒ well_formed_record(g, s, p, i, p`seq(i), g(p`seq(i)`leftnonterminal))
+
+  % Prove that any two records in different well-formed proofs have the same
+  % result in terms of success/failure and length of parse.
+  %
+  % @QED is_deterministic proved by hendrix on Thu, 17 Mar 2022 08:07:26 GMT
+  is_deterministic: LEMMA
+    FORALL (p, q : pre_proof):
+      FORALL (i, j : nat):
+        well_formed_proof(g, s, p)
+        & well_formed_proof(g, s, q)
+        & i < p`length
+        & j < q`length
+        & p`seq(i)`leftnonterminal = q`seq(j)`leftnonterminal
+        & p`seq(i)`position        = q`seq(j)`position
+        & p`seq(i)`inattr          = q`seq(j)`inattr
+        ⇒ record_result(p`seq(i)) = record_result(q`seq(j))
+
+END attr_proof
+
